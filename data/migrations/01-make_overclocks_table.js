@@ -1,12 +1,10 @@
 exports.up = function(knex){
     return knex.schema.createTable("overclocks", table =>{
         table.increments(); //create primary key (id), which auto increments
-        table.text("vin", 128).unique().notNullable();
-        table.text("make").notNullable();
-        table.text("model").notNullable();
-        table.decimal("mileage").notNullable();
-        table.text("title", 128)
-        table.text("transmission", 128)
+        table.text("weapon", 128).notNullable();
+        table.text("name", 128).unique().notNullable();
+        table.text("effect").notNullable();
+        table.text("description").notNullable();
     })
 }
 exports.down = function(knex){
