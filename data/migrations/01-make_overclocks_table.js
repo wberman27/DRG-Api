@@ -1,5 +1,5 @@
 exports.up = function(knex){
-    return knex.schema.createTable("cars", table =>{
+    return knex.schema.createTable("overclocks", table =>{
         table.increments(); //create primary key (id), which auto increments
         table.text("vin", 128).unique().notNullable();
         table.text("make").notNullable();
@@ -10,5 +10,5 @@ exports.up = function(knex){
     })
 }
 exports.down = function(knex){
-    return knex.schema.dropTableIfExists("cars")
+    return knex.schema.dropTableIfExists("overclocks")
 }

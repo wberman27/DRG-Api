@@ -22,7 +22,7 @@ function App() {
       <div className='container'>
         <div className='card'>
           <h1>Welcome to the Deep Rock Galactic OverClocks API</h1>
-          <h2><a href="" target="_blank">Fetch data from <span>/api/overclocks</span></a></h2>
+          <h2><a href="http://localhost:5000/api/overclocks" target="_blank">Fetch data from <span>/api/overclocks</span></a></h2>
         </div>
       </div>
     </div>
