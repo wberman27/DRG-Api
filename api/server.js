@@ -1,3 +1,4 @@
+const dotenv = require('dotenv').config()
 const express = require("express");
 const overclocksRouter = require('./overclocks/overclocks-router');
 const helmet = require('helmet');
