@@ -1,21 +1,20 @@
-const Cars = require('./cars-model')
-var vinValidator = require('vin-validator');
+const Overclocks = require('./overclocks-model')
 
-const checkCarId = async (req, res, next) => {
+const checkOverclockId = async (req, res, next) => {
   try{
-    const car = await Cars.getById(req.params.id)
-    if(car){
-      req.car = car;
+    const overclock = await Overclocks.getById(req.params.id)
+    if(overclock){
+      req.overclock = overclock;
       next()
     }else{
-      res.status(404).json({ message: "car with id <car id> is not found" })
+      res.status(404).json({ message: `overclock with id ${req.params.id} is not found` })
     }
   }catch(err){
     next(err)
   }
 }
 
-const checkCarPayload = (req, res, next) => {
+const checkOverclockPayload = (req, res, next) => {
   if(!req.body.vin){
     res.status(400).json({ message: `vin is missing` })
   }else{
@@ -35,35 +34,26 @@ const checkCarPayload = (req, res, next) => {
   }
 }
 
-const checkVinNumberValid = (req, res, next) => {
-  if(vinValidator.validate(req.body.vin)){
-    next()
-  }else{
-    res.status(400).json({ message: `vin ${req.body.vin} is invalid` })
-  }
-}
 
-const checkVinNumberUnique = async (req, res, next) => {
-  try{
-    const car = await Cars.getAll()
-    const vinNums = []
-    car.map(c => {
-      vinNums.push(c.vin)
-      return vinNums;
-    })
-    if(vinNums.includes(req.body.vin)){
-      res.status(400).json({ message: `vin ${req.body.vin} already exists` })
-    }else{
-      next()
-    }
-  }catch(err){
-    next(err)
-  }
-}
+// const checkVinNumberUnique = async (req, res, next) => {
+//   try{
+//     const overclock = await Overclocks.getAll()
+//     const vinNums = []
+//     overclock.map(c => {
+//       vinNums.push(c.vin)
+//       return vinNums;
+//     })
+//     if(vinNums.includes(req.body.vin)){
+//       res.status(400).json({ message: `vin ${req.body.vin} already exists` })
+//     }else{
+//       next()
+//     }
+//   }catch(err){
+//     next(err)
+//   }
+// }
 
 module.exports = {
-  checkCarId,
-  checkCarPayload,
-  checkVinNumberValid,
-  checkVinNumberUnique
+  checkOverclockId,
+  checkOverclockPayload
 }

@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
+    "heroku-postbuild": "cd client && npm i && npm run build",
     "mup": "knex migrate:up",
     "mdown": "knex migrate:down",
     "mlatest": "knex migrate:latest",
@@ -17,6 +18,8 @@
     "nodemon": "^2.0.7"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^4.4.1",
     "knex": "^0.21.17",
