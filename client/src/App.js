@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <div className='container'>
         <div className='card'>
-          <img src="..\..\images\overclock1.png" alt="oc"/>
+          {/* <img src="http://localhost:5000/images/overclock1.png" alt="oc"/> */}
           <h1>Welcome to the Deep Rock Galactic OverClocks API</h1>
           <h2><a href="http://localhost:5000/api/overclocks" rel="noreferrer" target="_blank">Fetch data from <span>/api/overclocks</span></a></h2>
         </div>
